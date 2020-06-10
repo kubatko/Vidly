@@ -214,8 +214,21 @@
     <Compile Include="Migrations\202006100602192_InitialModel2.designer.cs">
       <DependentUpon>202006100602192_InitialModel2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006100610244_AddIsSubscribedToCustomer.cs" />
+    <Compile Include="Migrations\202006100610244_AddIsSubscribedToCustomer.designer.cs">
+      <DependentUpon>202006100610244_AddIsSubscribedToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006100616274_AddMigrationType.cs" />
+    <Compile Include="Migrations\202006100616274_AddMigrationType.designer.cs">
+      <DependentUpon>202006100616274_AddMigrationType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006100620159_PopulateMembershipType.cs" />
+    <Compile Include="Migrations\202006100620159_PopulateMembershipType.designer.cs">
+      <DependentUpon>202006100620159_PopulateMembershipType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -391,6 +404,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006100602192_InitialModel2.resx">
       <DependentUpon>202006100602192_InitialModel2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006100610244_AddIsSubscribedToCustomer.resx">
+      <DependentUpon>202006100610244_AddIsSubscribedToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006100616274_AddMigrationType.resx">
+      <DependentUpon>202006100616274_AddMigrationType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006100620159_PopulateMembershipType.resx">
+      <DependentUpon>202006100620159_PopulateMembershipType.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
