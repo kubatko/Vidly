@@ -1,39 +1,48 @@
-﻿using System.Collections.Generic;
+﻿using System.Data;
+using System.Data.Entity;
+using System.Linq;
+using System.Net;
 using System.Web.Mvc;
 using Vidly.Models;
-using Vidly.ViewModels;
 
 namespace Vidly.Controllers
 {
     public class MoviesController : Controller
     {
-    
-        [Route("movies/release/{year}/{month:regex(\\d{2}):range(1,12)}")]
-        public ActionResult ByReleaseDate(int year, int month)
+        private VidlyDbContext db = new VidlyDbContext();
+
+        public ActionResult Index()
         {
-            return Content(year + "/" + month);
+            return View(db.Movies.Include(m => m.Genre).ToList());
         }
 
-        public ActionResult Random(int? id)
+        
+        public ActionResult Details(int? id)
         {
-            Movie movie = new Movie() { Name = "Shrek !" };
-            //ViewData["Movie"] = movie;
-
-            var customers = new List<Customer>
+            if (id == null)
             {
-                new Customer() { Name = "Customer 1"},
-                new Customer() { Name = "Customer 2"}
-            };
-
-            var viewModel = new RandomMovieViewModel
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Movie movie = db.Movies.Include(m => m.Genre).Where(m => m.Id == id).FirstOrDefault();
+            if (movie == null)
             {
-                Movie = movie,
-                Customers = customers
-            };
-
-            return View(viewModel);
+                return HttpNotFound();
+            }
+            return View(movie);
         }
 
-       
+        public ActionResult New()
+        {
+            return View();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
     }
 }

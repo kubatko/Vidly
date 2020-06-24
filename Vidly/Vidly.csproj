@@ -197,6 +197,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Common\VidlyDbContext.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -226,18 +227,81 @@
     <Compile Include="Migrations\202006100620159_PopulateMembershipType.designer.cs">
       <DependentUpon>202006100620159_PopulateMembershipType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006100640044_ApplyDataAnnotationToCustomerName.cs" />
+    <Compile Include="Migrations\202006100640044_ApplyDataAnnotationToCustomerName.designer.cs">
+      <DependentUpon>202006100640044_ApplyDataAnnotationToCustomerName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006101154214_SomeChangesInModel.cs" />
+    <Compile Include="Migrations\202006101154214_SomeChangesInModel.designer.cs">
+      <DependentUpon>202006101154214_SomeChangesInModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006101213461_ModelChange.cs" />
+    <Compile Include="Migrations\202006101213461_ModelChange.designer.cs">
+      <DependentUpon>202006101213461_ModelChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006101216366_ChangeModel.cs" />
+    <Compile Include="Migrations\202006101216366_ChangeModel.designer.cs">
+      <DependentUpon>202006101216366_ChangeModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006101227487_changes.cs" />
+    <Compile Include="Migrations\202006101227487_changes.designer.cs">
+      <DependentUpon>202006101227487_changes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006101245065_AddedNameOfMemberShipType.cs" />
+    <Compile Include="Migrations\202006101245065_AddedNameOfMemberShipType.designer.cs">
+      <DependentUpon>202006101245065_AddedNameOfMemberShipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006110806312_AddedBirthDateToCustomerModel.cs" />
+    <Compile Include="Migrations\202006110806312_AddedBirthDateToCustomerModel.designer.cs">
+      <DependentUpon>202006110806312_AddedBirthDateToCustomerModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006110808430_SomeChangesInCustomerModel.cs" />
+    <Compile Include="Migrations\202006110808430_SomeChangesInCustomerModel.designer.cs">
+      <DependentUpon>202006110808430_SomeChangesInCustomerModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006110852451_AddedMovieModel.cs" />
+    <Compile Include="Migrations\202006110852451_AddedMovieModel.designer.cs">
+      <DependentUpon>202006110852451_AddedMovieModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006110854372_PopulateMovieGenres.cs" />
+    <Compile Include="Migrations\202006110854372_PopulateMovieGenres.designer.cs">
+      <DependentUpon>202006110854372_PopulateMovieGenres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006111411098_MovieModelChanges.cs" />
+    <Compile Include="Migrations\202006111411098_MovieModelChanges.designer.cs">
+      <DependentUpon>202006111411098_MovieModelChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006120656518_AddedIsSubscribedToNewsLetters.cs" />
+    <Compile Include="Migrations\202006120656518_AddedIsSubscribedToNewsLetters.designer.cs">
+      <DependentUpon>202006120656518_AddedIsSubscribedToNewsLetters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006190641132_renameDbcontextProp.cs" />
+    <Compile Include="Migrations\202006190641132_renameDbcontextProp.designer.cs">
+      <DependentUpon>202006190641132_renameDbcontextProp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006190715100_renameDbcontextProps.cs" />
+    <Compile Include="Migrations\202006190715100_renameDbcontextProps.designer.cs">
+      <DependentUpon>202006190715100_renameDbcontextProps.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006190726221_testUp.cs" />
+    <Compile Include="Migrations\202006190726221_testUp.designer.cs">
+      <DependentUpon>202006190726221_testUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006190729140_testDown.cs" />
+    <Compile Include="Migrations\202006190729140_testDown.designer.cs">
+      <DependentUpon>202006190729140_testDown.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Movie.cs" />
-    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\MovieGenre.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\RandomMovieViewModel.cs" />
+    <Compile Include="ViewModels\NewCustomerViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
-    <Content Include="Content\bootstrap-lumen.css" />
     <Content Include="Content\bootstrap-reboot.css" />
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -249,6 +313,15 @@
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\index.js.flow" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
     <Content Include="Scripts\bootstrap.min.js.map" />
     <Content Include="Scripts\bootstrap.js.map" />
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
@@ -259,15 +332,6 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <Content Include="Scripts\esm\popper-utils.js" />
-    <Content Include="Scripts\esm\popper-utils.min.js" />
-    <Content Include="Scripts\esm\popper.js" />
-    <Content Include="Scripts\esm\popper.min.js" />
-    <Content Include="Scripts\index.js.flow" />
-    <Content Include="Scripts\esm\popper.min.js.map" />
-    <Content Include="Scripts\esm\popper.js.map" />
-    <Content Include="Scripts\esm\popper-utils.min.js.map" />
-    <Content Include="Scripts\esm\popper-utils.js.map" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
@@ -366,8 +430,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Movies\Random.cshtml" />
-    <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper.js.flow" />
@@ -378,6 +440,11 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\Movies\Details.cshtml" />
+    <Content Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Customers\CustomerForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -413,6 +480,54 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006100620159_PopulateMembershipType.resx">
       <DependentUpon>202006100620159_PopulateMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006100640044_ApplyDataAnnotationToCustomerName.resx">
+      <DependentUpon>202006100640044_ApplyDataAnnotationToCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006101154214_SomeChangesInModel.resx">
+      <DependentUpon>202006101154214_SomeChangesInModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006101213461_ModelChange.resx">
+      <DependentUpon>202006101213461_ModelChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006101216366_ChangeModel.resx">
+      <DependentUpon>202006101216366_ChangeModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006101227487_changes.resx">
+      <DependentUpon>202006101227487_changes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006101245065_AddedNameOfMemberShipType.resx">
+      <DependentUpon>202006101245065_AddedNameOfMemberShipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006110806312_AddedBirthDateToCustomerModel.resx">
+      <DependentUpon>202006110806312_AddedBirthDateToCustomerModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006110808430_SomeChangesInCustomerModel.resx">
+      <DependentUpon>202006110808430_SomeChangesInCustomerModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006110852451_AddedMovieModel.resx">
+      <DependentUpon>202006110852451_AddedMovieModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006110854372_PopulateMovieGenres.resx">
+      <DependentUpon>202006110854372_PopulateMovieGenres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006111411098_MovieModelChanges.resx">
+      <DependentUpon>202006111411098_MovieModelChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006120656518_AddedIsSubscribedToNewsLetters.resx">
+      <DependentUpon>202006120656518_AddedIsSubscribedToNewsLetters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006190641132_renameDbcontextProp.resx">
+      <DependentUpon>202006190641132_renameDbcontextProp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006190715100_renameDbcontextProps.resx">
+      <DependentUpon>202006190715100_renameDbcontextProps.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006190726221_testUp.resx">
+      <DependentUpon>202006190726221_testUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006190729140_testDown.resx">
+      <DependentUpon>202006190729140_testDown.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
