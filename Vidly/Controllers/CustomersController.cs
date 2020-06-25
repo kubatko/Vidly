@@ -86,7 +86,17 @@ namespace Vidly.Controllers
             };
 
             return View("CustomerForm", viewModel);
-        }   
+        }
+
+        public ActionResult Delete(int id)
+        {
+            var customerInDb = _dbContext.Customers.SingleOrDefault(c => c.Id == id);
+            _dbContext.Customers.Remove(customerInDb);
+            _dbContext.SaveChanges();
+
+            return RedirectToAction("Index");
+            
+        }
      
         protected override void Dispose(bool disposing)
         {

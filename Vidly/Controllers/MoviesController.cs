@@ -1,5 +1,7 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
@@ -9,11 +11,11 @@ namespace Vidly.Controllers
 {
     public class MoviesController : Controller
     {
-        private VidlyDbContext db = new VidlyDbContext();
+        private VidlyDbContext _dbContext = new VidlyDbContext();
 
         public ActionResult Index()
         {
-            return View(db.Movies.Include(m => m.Genre).ToList());
+            return View(_dbContext.Movies.Include(m => m.Genre).ToList());
         }
 
         
@@ -23,7 +25,7 @@ namespace Vidly.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Movie movie = db.Movies.Include(m => m.Genre).Where(m => m.Id == id).FirstOrDefault();
+            Movie movie = _dbContext.Movies.Include(m => m.Genre).Where(m => m.Id == id).FirstOrDefault();
             if (movie == null)
             {
                 return HttpNotFound();
@@ -33,14 +35,62 @@ namespace Vidly.Controllers
 
         public ActionResult New()
         {
-            return View();
+            MovieFormViewModel viewModel = new MovieFormViewModel()
+            {
+                Genres = _dbContext.MovieGenres
+            };
+
+            ViewBag.Title = "New Movie";
+
+            return View("MovieForm",viewModel);
+        }
+
+        public ActionResult Save(Movie movie)
+        {
+            if (movie.Id == 0)
+            {
+                _dbContext.Movies.Add(movie);
+            }
+            else
+            {
+                var dbMovie = _dbContext.Movies.SingleOrDefault(m => m.Id == movie.Id);
+
+                dbMovie.Name = movie.Name;
+                dbMovie.NumberInStock = movie.NumberInStock;
+                dbMovie.ReleaseDate = movie.ReleaseDate;
+                dbMovie.GenreId = movie.GenreId;
+            }
+
+
+            _dbContext.SaveChanges();
+            
+            
+            return RedirectToAction("Index", "Movies");
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var movie = _dbContext.Movies.SingleOrDefault(m => m.Id == id);
+
+            if (movie == null)
+                return HttpNotFound();
+
+            var viewModel = new MovieFormViewModel()
+            {
+                Movie = movie,
+                Genres = _dbContext.MovieGenres.ToList()
+            };
+
+            ViewBag.Title = "Edit Movie";
+
+            return View("MovieForm", viewModel);
         }
 
         protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
-                db.Dispose();
+                _dbContext.Dispose();
             }
             base.Dispose(disposing);
         }

@@ -198,7 +198,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Common\VidlyDbContext.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -291,13 +290,26 @@
     <Compile Include="Migrations\202006190729140_testDown.designer.cs">
       <DependentUpon>202006190729140_testDown.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006250715469_AddedGenreidToMovie.cs" />
+    <Compile Include="Migrations\202006250715469_AddedGenreidToMovie.designer.cs">
+      <DependentUpon>202006250715469_AddedGenreidToMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006250807167_GenreIdIsRequired.cs" />
+    <Compile Include="Migrations\202006250807167_GenreIdIsRequired.designer.cs">
+      <DependentUpon>202006250807167_GenreIdIsRequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006250827186_MoveDateAddedRemoved.cs" />
+    <Compile Include="Migrations\202006250827186_MoveDateAddedRemoved.designer.cs">
+      <DependentUpon>202006250827186_MoveDateAddedRemoved.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\MovieGenre.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\NewCustomerViewModel.cs" />
+    <Compile Include="ViewModels\CustomerViewModel.cs" />
+    <Compile Include="ViewModels\MovieFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -427,9 +439,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper.js.flow" />
@@ -445,6 +454,7 @@
     <Content Include="Views\Movies\Details.cshtml" />
     <Content Include="Views\Movies\Index.cshtml" />
     <Content Include="Views\Customers\CustomerForm.cshtml" />
+    <Content Include="Views\Movies\MovieForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -528,6 +538,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006190729140_testDown.resx">
       <DependentUpon>202006190729140_testDown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006250715469_AddedGenreidToMovie.resx">
+      <DependentUpon>202006250715469_AddedGenreidToMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006250807167_GenreIdIsRequired.resx">
+      <DependentUpon>202006250807167_GenreIdIsRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006250827186_MoveDateAddedRemoved.resx">
+      <DependentUpon>202006250827186_MoveDateAddedRemoved.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
