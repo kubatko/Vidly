@@ -101,6 +101,10 @@ namespace Vidly.Controllers
         public ActionResult Delete(int id)
         {
             var customerInDb = _dbContext.Customers.SingleOrDefault(c => c.Id == id);
+
+            if (customerInDb == null)
+                return HttpNotFound();
+
             _dbContext.Customers.Remove(customerInDb);
             _dbContext.SaveChanges();
 
