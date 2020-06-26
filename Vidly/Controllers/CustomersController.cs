@@ -12,13 +12,11 @@ namespace Vidly.Controllers
     {
         private VidlyDbContext _dbContext = new VidlyDbContext();
 
-        // GET: Customers
         public ActionResult Index()
         {
             return View(_dbContext.Customers.Include(c => c.MembershipType).ToList());
         }
 
-        // GET: Customers/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -34,8 +32,19 @@ namespace Vidly.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new CustomerFormViewModel()
+                {
+                    Customer = customer,
+                    MemberShipTypes = _dbContext.MemberShipTypes
+                };
+                return View("CustomerForm",viewModel);
+            }
+
             if (customer.Id == 0)
                 _dbContext.Customers.Add(customer);
             else
@@ -66,6 +75,7 @@ namespace Vidly.Controllers
             var membershipTypes = _dbContext.MemberShipTypes.ToList();
             var viewModel = new CustomerFormViewModel()
             {
+                Customer = new Customer(),
                 MemberShipTypes = membershipTypes
             };
 

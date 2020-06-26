@@ -11,10 +11,14 @@ namespace Vidly.Models
         [Display(Name = "Movie")]
         public string Name { get; set; }
         public MovieGenre Genre { get; set; }
+        [Required(ErrorMessage = "Genre field is required")]
         public int GenreId { get; set; }
         [Required]
+        [Display(Name = "Release Date")]
         public DateTime ReleaseDate { get; set; }
-        [Required]
+        
+        [NumberInStockEqualZeroValidation]
+        [Display(Name = "Number In Stock")]
         public int NumberInStock { get; set; }
         
     }

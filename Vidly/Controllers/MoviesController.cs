@@ -37,7 +37,12 @@ namespace Vidly.Controllers
         {
             MovieFormViewModel viewModel = new MovieFormViewModel()
             {
-                Genres = _dbContext.MovieGenres
+                Genres = _dbContext.MovieGenres,
+                Movie = new Movie()
+                {
+                    ReleaseDate = new DateTime(),
+                    NumberInStock = 0
+                },
             };
 
             ViewBag.Title = "New Movie";
@@ -45,8 +50,24 @@ namespace Vidly.Controllers
             return View("MovieForm",viewModel);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Movie movie)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new MovieFormViewModel()
+                {
+                    Movie = movie,
+                    Genres = _dbContext.MovieGenres
+                };
+
+
+
+                return View("MovieForm", viewModel);
+            }
+
+
             if (movie.Id == 0)
             {
                 _dbContext.Movies.Add(movie);
